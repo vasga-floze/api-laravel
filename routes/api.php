@@ -22,7 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 
 Route::apiResource('/v1/posts', v1::class)
-    ->only(['index', 'show']); //habilita para la api index y show
+    ->only(['index', 'show'])
+    ->middleware('auth:sanctum'); //habilita para la api index y show
 
 Route::apiResource('/v2/posts', v2::class)
-    ->only(['index', 'show']);
+    ->only(['index', 'show'])
+    ->middleware('auth:sanctum'); //habilita para la api index y show
