@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\v1\PostController as v1;
 use App\Http\Controllers\API\v2\PostController as v2;
+//agregar el nuevo controller que es para Login
+use App\Http\Controllers\API\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,7 @@ Route::apiResource('/v1/posts', v1::class)
 Route::apiResource('/v2/posts', v2::class)
     ->only(['index', 'show'])
     ->middleware('auth:sanctum'); //habilita para la api index y show
+
+Route::post('login',[
+    LoginController::class, 'login'
+]);
